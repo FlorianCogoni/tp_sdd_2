@@ -2,7 +2,7 @@
 #include <stdlib.h>
 #include "pile.h"
 
-pile_t * initpile(int tmax) {
+pile_t * initPile(int tmax) {
     pile_t * pPile = NULL;
     pPile = (pile_t *) malloc(sizeof(pile_t));
     if (pPile != NULL) {
@@ -27,8 +27,8 @@ int empile(pile_t * pPile, int elt){
         code = 0;
     }
     else{
-        pPile->liste[taille] = elt;
-        pPile->taille ++;
+        pPile->liste[pPile->taille] = elt;
+        pPile->taille += 1;
     }
     return code;
 }
@@ -39,8 +39,8 @@ int depile(pile_t * pPile, int * elt){
         code = 0;
     }
     else{
-        *elt = pPile->liste[taille];
-        pPile->taille --;
+        *elt = pPile->liste[pPile->taille];
+        pPile->taille -= 1;
     }
     return code;
 }
