@@ -1,5 +1,7 @@
 #include <stdio.h>
+#include <stdlib.h>
 #include "pile.h"
+#include "fonctionsTab.h"
 
 
 void echange(int T[], int i, int j){
