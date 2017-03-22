@@ -1,21 +1,16 @@
+#include <stdio.h>
+#include <stdlib.h>
 #include "stdio.h"
 #include "pile.h"
-
-void echange(int T[], int i, int j){
-    int temp = T[i];
-    T[i] = T[j];
-    T[j] = temp;
-}
+#include "fonctionsTab.h"
 
 void truc_rec (int i, int n, int T[]){
     int j;
     if (i == n){
-        for (j=0; j<n; j++){
-            printf("%d \n", T[j]);
-        }
+        afficherTab(T,n);
     }
     else{
-        for (j=i; j<n; j++){
+        for (j=i; j<=n; j++){
             echange(T,i,j);
             truc_rec(i+1,n,T);
             echange(T,i,j);
