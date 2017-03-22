@@ -33,12 +33,17 @@ int empileTab(pile_t * pPile, int T[], int n)
 int depileTab(pile_t * pPile, int T[], int n)
 {
     int i, code = 1;
+    int * cour;
     for (i=0;i<n;i++)
     {
-        T[i] = depile(pPile);
-        if (T[i] == NULL)
+        cour = depile(pPile);
+        if (cour == NULL)
         {
             code = 0;
+        }
+        else
+        {
+            T[i] = *cour;
         }
     }
     return code;

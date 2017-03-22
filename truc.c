@@ -4,6 +4,8 @@
 #include "pile.h"
 #include "fonctionsTab.h"
 
+#define TAILLE 100
+
 void truc_rec (int i, int n, int T[]){
     int j;
     if (i == n){
@@ -22,7 +24,7 @@ void truc_iter(int i, int n, int T[])
 {
     int j,k;
     int *e;
-    pile_t * p=initpile(TAILLE);
+    pile_t * p=initPile(TAILLE);
     int fin = 0;
 
     while (!fin)
@@ -40,11 +42,11 @@ void truc_iter(int i, int n, int T[])
             }
             i=i+1;
         }
-        while (!est_vide(p))
+        while (!estVide(p))
         {
             for (k=n-1;k<=0;k--)
                 {
-                    depile(p,e);
+                    e = depile(p);
                     T[k]=*e;
                 }
             for (j=0;j<n;j++)
@@ -55,12 +57,4 @@ void truc_iter(int i, int n, int T[])
         }
     }
 
-}
-
-
-int main () {
-    int T[] = {1,2,3};
-    truc_rec (1,3,T);
-    truc_iter(1,3,T);
-    return 0;
 }

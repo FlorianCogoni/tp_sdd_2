@@ -37,7 +37,7 @@ int * depile(pile_t * pPile){
     int * adresseElt = NULL;
     if (pPile->taille > 0)
     {
-        adresseElt = pPile->liste[pPile->taille];
+        adresseElt =  &(pPile->liste[pPile->taille]);
         pPile->taille -= 1;
     }
     return adresseElt;
