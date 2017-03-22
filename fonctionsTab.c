@@ -5,9 +5,9 @@
 
 
 void echange(int T[], int i, int j){
-    int temp = T[i];
-    T[i] = T[j];
-    T[j] = temp;
+    int temp = T[i-1];
+    T[i-1] = T[j-1];
+    T[j-1] = temp;
 }
 
 void afficherTab(int T[], int n)
