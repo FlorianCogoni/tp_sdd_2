@@ -42,3 +42,16 @@ int * depile(pile_t * pPile){
     }
     return adresseElt;
 }
+
+void afficherPile(pile_t * pPile)
+{
+    int i;
+    int * cour = pPile->liste;
+    for (i=0;i<pPile->taille;i++)
+    {
+        printf("%d ", (*cour));
+        cour ++;
+    }
+    printf("\n");
+}
+
