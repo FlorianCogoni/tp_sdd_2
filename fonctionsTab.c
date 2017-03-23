@@ -8,7 +8,7 @@
 |                                                                                      |
 |______________________________________________________________________________________|
 
-	Ce fichier contient la fonction d'échange d'éléments d'un tableau, et d'affichage 
+Ce fichier contient la fonction d'échange d'éléments d'un tableau, et d'affichage 
 de tableau.
 
 */
