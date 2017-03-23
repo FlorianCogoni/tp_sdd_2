@@ -5,12 +5,13 @@
 void testsPile()
 {
 	int elt, code;
+	pile_t * pPile = NULL;
 	
 	printf("\nTEST INITIALISATION\n");
 	printf("----------------------------------------------------\n");
 	
 	printf("\n * pile initialisée de taille 5, vide :\n");
-	pile_t * pPile = initPile(5);
+	pPile = initPile(5);
 	afficherPile(pPile);
 	
 	printf("\n * test estVide :\n\n");
@@ -92,5 +93,4 @@ void testsPile()
 	empile(pPile,1);
 	afficherPile(pPile);
 	printf("la taille max n'est plus 5 et la pile est bien vide\n\n");
-	return 0;
 }
