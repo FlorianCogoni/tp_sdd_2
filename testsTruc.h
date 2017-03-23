@@ -1,5 +1,5 @@
-#ifndef TEST
-#define TEST
+#ifndef TESTS_TRUC
+#define TESTS_TRUC
 
 void compare(int i, int n, int T[]);
 
