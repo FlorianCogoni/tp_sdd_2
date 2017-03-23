@@ -63,3 +63,53 @@ void truc_iter(int i, int n, int T[])
         }
     }
 }
+
+/*
+void truc_iter(int i, int n, int T[])
+{
+    int j = i, fin = 0;
+    pile_t * pPile = initPile(50);
+    while (!fin)
+    {
+
+		while (i <= n)
+		{
+			echange(T,i,j);
+			empile(pPile, j);
+			i ++;
+			j = i;
+		}
+		
+		afficherTab(T,n);
+		
+		if (!estVide(pPile))
+		{
+			depile(pPile, &j);
+			i --;
+			echange(T,i,j);
+			j ++;
+		}
+		else
+		{
+			fin = 1;
+		}
+		
+		
+		while (j<n)
+		{
+			if (!estVide(pPile))
+			{
+				depile(pPile, &j);
+				i --;
+				echange(T,i,j);
+				j ++;
+			}
+			else
+			{
+				fin = 1;
+			}
+			
+		}
+		
+    }
+}*/
