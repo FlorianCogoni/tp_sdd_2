@@ -22,39 +22,34 @@ void truc_rec (int i, int n, int T[]){
 
 void truc_iter(int i, int n, int T[])
 {
-    int j,k;
-    int *e;
-    pile_t * p=initPile(TAILLE);
-    int fin = 0;
-
+    int j = i, fin = 0;
+    pile_t * pPile = initPile(50);
     while (!fin)
     {
-        while (i != n)
-        {
-            for (j=n-1;j<=0;j--)
-            {
-                echange(T,i,j);
-                for (k=0;k<n;k++)
-                {
-                    empile(p,T[k]);
-                }
-                echange(T,i,j);
-            }
-            i=i+1;
-        }
-        while (!estVide(p))
-        {
-            for (k=n-1;k<=0;k--)
-                {
-                    e = depile(p);
-                    T[k]=*e;
-                }
-            for (j=0;j<n;j++)
-                {
-            printf("%d",T[j]);
-            }
-        printf("\n");
-        }
-    }
 
+		while (i <= n)
+		{
+			echange(T,i,j);
+			empile(pPile, j);
+			i ++;
+			j = i;
+		}
+		afficherTab(T,n);
+		while (j<n)
+		{
+			if (!estVide(pPile))
+			{
+				depile(pPile, &j);
+				i --;
+				echange(T,i,j);
+				j ++;
+			}
+			else
+			{
+					fin = 1;
+			}
+			
+		}
+		
+    }
 }
