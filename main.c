@@ -11,7 +11,7 @@ int main()
     testsPile();
     compare(1,3,T1);
     printf("\n \n");
-    compare(0,0,T2);
+    /*compare(0,0,T2);
     printf("\n \n");
     compare(1,1,T3);
     printf("\n \n");
@@ -26,6 +26,6 @@ int main()
     compare(0,3,T1);
     printf("\n \n");
     compare(-1,3,T1);
-    printf("\n \n");
+    printf("\n \n");*/
     return 0;
 }

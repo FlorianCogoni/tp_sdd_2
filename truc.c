@@ -22,12 +22,13 @@ void truc_rec (int i, int n, int T[]){
 
 void truc_iter(int i, int n, int T[])
 {
-    int codeEmp,codeDep;
+    int codeEmp,codeDep,temp;
     pile_t * pPile = initPile(TAILLE);
     int j = i;
     int fin = 0;
     while(!fin)
     {
+        temp = i;
         while (i <= n)
         {
             echange(T, i, j);
@@ -39,15 +40,16 @@ void truc_iter(int i, int n, int T[])
                 break;
             }
             i = i+1;
-            j = i;
+            afficherTab(T,n);
         }
-        afficherTab(T,n);
+        j = temp;
         while(!fin && j<=n)
         {
             if (estVide(pPile))
             {
                 fin = 1;
-            } else
+            }
+            else
             {
                 codeDep = depile(pPile,&j);
                 if(!codeDep)
@@ -63,53 +65,3 @@ void truc_iter(int i, int n, int T[])
         }
     }
 }
-
-/*
-void truc_iter(int i, int n, int T[])
-{
-    int j = i, fin = 0;
-    pile_t * pPile = initPile(50);
-    while (!fin)
-    {
-
-		while (i <= n)
-		{
-			echange(T,i,j);
-			empile(pPile, j);
-			i ++;
-			j = i;
-		}
-		
-		afficherTab(T,n);
-		
-		if (!estVide(pPile))
-		{
-			depile(pPile, &j);
-			i --;
-			echange(T,i,j);
-			j ++;
-		}
-		else
-		{
-			fin = 1;
-		}
-		
-		
-		while (j<n)
-		{
-			if (!estVide(pPile))
-			{
-				depile(pPile, &j);
-				i --;
-				echange(T,i,j);
-				j ++;
-			}
-			else
-			{
-				fin = 1;
-			}
-			
-		}
-		
-    }
-}*/
