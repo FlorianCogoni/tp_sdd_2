@@ -3,10 +3,27 @@
 #include "pile.h"
 #include "fonctionsTab.h"
 #include "truc.h"
+#include "test.h"
 
 int main()
 {
-    int T[] = {1,2,3};
-    truc_rec (1,3,T);
+    compare(1,3,T1);
+    printf("\n \n");
+    compare(0,0,T2);
+    printf("\n \n");
+    compare(1,1,T3);
+    printf("\n \n");
+    compare(3,5,T4);
+    printf("\n \n");
+    compare(5,5,T4);
+    printf("\n \n");
+    compare(4,3,T1);
+    printf("\n \n");
+    compare(1,10,T1);
+    printf("\n \n");
+    compare(0,3,T1);
+    printf("\n \n");
+    compare(-1,3,T1);
+    printf("\n \n");
     return 0;
 }
