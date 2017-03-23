@@ -22,46 +22,35 @@ void truc_rec (int i, int n, int T[]){
 
 void truc_iter(int i, int n, int T[])
 {
-    int codeEmp,codeDep,temp;
-    pile_t * pPile = initPile(TAILLE);
-    int j = i;
-    int fin = 0;
-    while(!fin)
+	int j = i, fin = 0;
+    pile_t * pPile = initPile(50);
+    while (!estVide(pPile)  || !fin)
     {
-        temp = i;
-        while (i <= n)
-        {
-            echange(T, i, j);
-            codeEmp = empile(pPile, j);
-            if(!codeEmp)
-            {
-                printf("erreur d'empilage \n");
-                fin = 1;
-                break;
-            }
-            i = i+1;
-            afficherTab(T,n);
-        }
-        j = temp;
-        while(!fin && j<=n)
-        {
-            if (estVide(pPile))
-            {
-                fin = 1;
-            }
-            else
-            {
-                codeDep = depile(pPile,&j);
-                if(!codeDep)
-                {
-                    printf("erreur depilage \n");
-                    fin = 1;
-                    break;
-                }
-                i = i-1;
-                echange(T,i,j);
-                j = j+1;
-            }
-        }
-    }
+		if (i<=n && j<=n)
+		{
+			empile(pPile, j);
+			echange(T,i,j);
+			i++;
+			j=i;
+		}
+		else
+		{
+			if (i==n+1)
+			{
+				afficherTab(T,n);
+			}
+			if (!estVide(pPile))
+			{
+				depile(pPile, &j);
+				i--;
+				echange(T,i,j);
+				j++;
+			}
+			else
+			{
+				fin = 1;
+			}
+		}
+	}
+	libererPile(pPile);
 }
