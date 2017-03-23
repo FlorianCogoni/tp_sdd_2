@@ -105,7 +105,7 @@ void testsPile()
 	printf("\ncode = %d\nélément dépilé : %d\n",code,elt);
 	afficherPile(pPile);
 	
-	printf("\n * puis dépile on le dernier élément :\n\n");
+	printf("\n * puis on dépile le dernier élément :\n\n");
 	code = depile(pPile,&elt);
 	printf("code = %d\nélément dépilé : %d\n",code,elt);
 	afficherPile(pPile);
