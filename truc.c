@@ -4,17 +4,15 @@
 #include "pile.h"
 #include "fonctionsTab.h"
 
-void truc_rec (int i, int n, int T[])
-{
+#define TAILLE 100
+
+void truc_rec (int i, int n, int T[]){
     int j;
-    if (i == n)
-    {
+    if (i == n){
         afficherTab(T,n);
     }
-    else
-    {
-        for (j=i; j<=n; j++)
-	{
+    else{
+        for (j=i; j<=n; j++){
             echange(T,i,j);
             truc_rec(i+1,n,T);
             echange(T,i,j);
@@ -24,17 +22,23 @@ void truc_rec (int i, int n, int T[])
 
 void truc_iter(int i, int n, int T[])
 {
-    int j = i, fin = 0;
-    pile_t * pPile = initPile(n);
+    int codeEmp,codeDep;
+	int j = i, fin = 0;
+    pile_t * pPile = initPile(TAILLE);
     while (!estVide(pPile)  || !fin)
     {
-	if (i<=n && j<=n)
-	{
-		empile(pPile, j);
-		echange(T,i,j);
-		i++;
-		j=i;
-	}
+		if (i<=n && j<=n)
+		{
+			codeEmp = empile(pPile, j);
+            if(!codeEmp)
+            {
+                printf("erreur d'empilage \n");
+                fin = 1;
+            }
+			echange(T,i,j);
+			i++;
+			j=i;
+		}
 		else
 		{
 			if (i==n+1)
@@ -43,7 +47,12 @@ void truc_iter(int i, int n, int T[])
 			}
 			if (!estVide(pPile))
 			{
-				depile(pPile, &j);
+				codeDep = depile(pPile, &j);
+                if(!codeDep)
+                {
+                    printf("erreur de depilage \n");
+                    fin = 1;
+                }
 				i--;
 				echange(T,i,j);
 				j++;
@@ -54,5 +63,5 @@ void truc_iter(int i, int n, int T[])
 			}
 		}
 	}
-	libererPile(pPile);
+	free(pPile);
 }
