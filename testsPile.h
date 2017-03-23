@@ -8,7 +8,7 @@
 |                                                                                      |
 |______________________________________________________________________________________|
 
-	Ce fichier contient la fonction de test des fonctions de pile.
+	Ce fichier contient le prototype de la fonction de test des fonctions de pile.
 
 */
 
