@@ -3,10 +3,12 @@
 #include "pile.h"
 #include "fonctionsTab.h"
 #include "truc.h"
-#include "test.h"
+#include "testsTruc.h"
+#include "testsPile.h"
 
 int main()
 {
+    testsPile();
     compare(1,3,T1);
     printf("\n \n");
     compare(0,0,T2);

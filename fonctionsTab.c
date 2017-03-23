@@ -20,7 +20,7 @@ void afficherTab(int T[], int n)
     printf("\n");
 }
 
-int empileTab(pile_t * pPile, int T[], int n)
+/*int empileTab(pile_t * pPile, int T[], int n)
 {
     int i, code = 0;
     for (i=0;i<n;i++)
@@ -47,4 +47,4 @@ int depileTab(pile_t * pPile, int T[], int n)
         }
     }
     return code;
-}
+}*/

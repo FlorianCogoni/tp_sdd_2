@@ -1,7 +1,7 @@
 all : tp2
 
 tp2 : pile.o testsPile.o fonctionsTab.o truc.o testsTruc.o main.o
-	gcc -Wall -Wextra -ansi -pedantic -o tp2 pile.o main.o truc.o fonctionsTab.o testsTruc.o
+	gcc -Wall -Wextra -ansi -pedantic -o tp2 pile.o main.o truc.o fonctionsTab.o testsTruc.o testsPile.o
 
 pile.o : pile.c pile.h
 	gcc -Wall -Wextra -ansi -pedantic -o pile.o -c pile.c
