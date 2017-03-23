@@ -17,7 +17,6 @@
 #include "pile.h"
 
 
-
 /*---------------------------------------------------------------------
  
  Cette fonction initialise une pile (vide) de taille max tmax et renvoie
