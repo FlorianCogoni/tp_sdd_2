@@ -27,12 +27,12 @@ son adresse.
 pile_t * initPile(int tmax) 
 {
     pile_t * pPile = NULL;						/* initialisation de l'adresse de la pile */
-    pPile = (pile_t *) malloc(sizeof(pile_t));	/* allocation de l'espace mémoire d'une taille de pile */
+    pPile = (pile_t *) malloc(sizeof(pile_t));				/* allocation de l'espace mémoire d'une taille de pile */
     if (pPile != NULL) 
     {
         pPile->tmax = tmax;
         pPile->taille = 0;
-        pPile->liste = (int *) malloc(tmax * sizeof(int));	/* allocation de l'espace mémoire pour la liste de la pile */
+        pPile->liste = (int *) malloc(tmax * sizeof(int));		/* allocation de l'espace mémoire pour la liste de la pile */
     }
     return pPile;
 }
@@ -64,10 +64,10 @@ non à l'aide de son adresse.
 
 int estVide(pile_t * pPile)
 {
-    int bool = 0;		/* on initialise le booléen */
+    int bool = 0;			/* on initialise le booléen */
     if (pPile->taille == 0)		/* si la pile est de taille nulle càd si elle est vide */
     {
-        bool = 1;		/* on actualise le booléen */
+        bool = 1;			/* on actualise le booléen */
     }
     return bool;
 }
@@ -88,14 +88,14 @@ Cette fonction renvoie un code d'erreur :
 int empile(pile_t * pPile, int elt)
 {
     int code = 0;			/* on initialise le code d'erreur */
-    if (pPile->taille == pPile->tmax) /* si la pile est pleine (taille = taille max) */
+    if (pPile->taille == pPile->tmax)   /* si la pile est pleine (taille = taille max) */
     {
         printf("\npile pleine\n");
     }
     else
     {
         pPile->liste[pPile->taille] = elt;	/* elt est mis à la suite de la liste */
-        pPile->taille += 1;		/* on augmente la taille de la liste */
+        pPile->taille += 1;			/* on augmente la taille de la liste */
         code = 1;				/* on actualise le code d'erreur */
     }
     return code;
@@ -117,14 +117,14 @@ Cette fonction renvoie un code d'erreur :
 
 int depile(pile_t * pPile, int * elt)
 {
-    int code = 0;			/* on initialise le code d'erreur */
-    if (!estVide(pPile))	/* si la pile n'est pas vide */
+    int code = 0;					/* on initialise le code d'erreur */
+    if (!estVide(pPile))				/* si la pile n'est pas vide */
     {
         *elt = pPile->liste[pPile->taille - 1];		/* on récupère l'adresse de l'élément */
-        pPile->taille -= 1;		/* on diminue la taille de la pile */
-        code = 1;				/* on actualise le code d'erreur */
+        pPile->taille -= 1;				/* on diminue la taille de la pile */
+        code = 1;					/* on actualise le code d'erreur */
     }
-    else  				/* la pile est vide */
+    else  						/* la pile est vide */
 	{
         printf("\npile vide\n");
     }
@@ -142,7 +142,7 @@ int depile(pile_t * pPile, int * elt)
 void afficherPile(pile_t * pPile)
 {
     int i;
-    int * cour = pPile->liste;		/* pointeur courant qui va parcourir la liste de la pile */
+    int * cour = pPile->liste;					/* pointeur courant qui va parcourir la liste de la pile */
     printf("\ntaille max de la pile : %d\n",pPile->tmax);
     printf("taille de la pile     : %d\n",pPile->taille);
     printf("pile                  : ");
