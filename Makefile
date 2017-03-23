@@ -1,22 +1,25 @@
 all : tp2
 
-tp2 : pile.o fonctionsTab.o truc.o test.o main.o
-	gcc -o tp2 pile.o main.o truc.o fonctionsTab.o test.o
+tp2 : pile.o testsPile.o fonctionsTab.o truc.o testsTruc.o main.o
+	gcc -Wall -Wextra –ansi -pedantic -o tp2 pile.o main.o truc.o fonctionsTab.o testsTruc.o
 
 pile.o : pile.c pile.h
-	gcc -o pile.o -c pile.c
+	gcc -Wall -Wextra –ansi -pedantic -o pile.o -c pile.c
+
+testsPile.o : testsPile.c testsPile.h pile.h
+	gcc -Wall -Wextra –ansi -pedantic -o testsPile.o -c testsPile.c
 	
 fonctionsTab.o : fonctionsTab.c fonctionsTab.h pile.h
-	gcc -o fonctionsTab.o -c fonctionsTab.c
+	gcc -Wall -Wextra –ansi -pedantic -o fonctionsTab.o -c fonctionsTab.c
 	
 truc.o : truc.c truc.h fonctionsTab.h pile.h
-	gcc -o truc.o -c truc.c
+	gcc -Wall -Wextra –ansi -pedantic -o truc.o -c truc.c
 
-test.o : test.c test.h truc.h fonctionsTab.h pile.h
-	gcc -o test.o -c test.c
+testsTruc.o : testsTruc.c testsTruc.h truc.h fonctionsTab.h pile.h
+	gcc -Wall -Wextra –ansi -pedantic -o testsTruc.o -c testsTruc.c
 
-main.o : main.c pile.h truc.h fonctionsTab.h pile.h test.h
-	gcc -o main.o -c main.c
+main.o : main.c pile.h testsPile.h truc.h fonctionsTab.h pile.h testsTruc.h
+	gcc -Wall -Wextra –ansi -pedantic -o main.o -c main.c
 
 clean :
 	rm -rf *.o
