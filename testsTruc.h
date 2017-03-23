@@ -4,8 +4,7 @@
 void compare(int i, int n, int T[]);
 
 int T1[3] = {1,2,3};
-int T2[0] = {};
-int T3[1] = {1};
-int T4[5] = {1,2,3,4,5};
+int T2[1] = {1};
+int T3[6] = {1,2,3,4,5,6};
 
 #endif

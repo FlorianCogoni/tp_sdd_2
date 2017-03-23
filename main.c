@@ -26,8 +26,6 @@ int main()
     compare(1,1,T2);
     printf("\n \n");
     compare(4,6,T3);
-    printf("\n \n");
-    compare(0,0,T4);
     printf("\n--------------------------------------- \n");
     printf("\n FIN TESTS \n");
     return 0;

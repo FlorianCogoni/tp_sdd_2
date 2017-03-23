@@ -63,5 +63,5 @@ void truc_iter(int i, int n, int T[])
 			}
 		}
 	}
-	free(pPile);
+	libererPile(pPile);
 }
