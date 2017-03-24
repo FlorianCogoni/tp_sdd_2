@@ -105,7 +105,7 @@ void testsPile()
 	printf("\ncode = %d\nélément dépilé : %d\n",code,elt);
 	afficherPile(pPile);
 	
-	printf("\n * puis on dépile le dernier élément :\n\n");
+	printf("\n * puis dépile on le dernier élément :\n\n");
 	code = depile(pPile,&elt);
 	printf("code = %d\nélément dépilé : %d\n",code,elt);
 	afficherPile(pPile);
@@ -136,6 +136,6 @@ void testsPile()
 	afficherPile(pPile);
 	printf("\n * et on libère la pile :\n");
 	libererPile(pPile);
-	afficherPile(pPile);
-	printf("la taille max n'est plus 5 et la pile est bien vide\n\n");
+	printf("\nla taille max n'est plus 5 et la pile est bien vide\n\n");
+	printf("(l'affichage provoque des erreurs Valgrind)");
 }
