@@ -40,7 +40,7 @@ void truc_rec (int i, int n, int T[])
         for (j=i; j<=n; j++)
         {
             echange(T,i,j);			/* l'échange permet les permutations */
-            truc_rec(i+1,n,T);			/* on appelle récursivement truc(i+1) */
+            truc_rec(i+1,n,T);		/* on appelle récursivement truc(i+1) */
             echange(T,i,j);
         }
     }
@@ -59,43 +59,43 @@ void truc_iter(int i, int n, int T[])
 {
     int codeEmp,codeDep;
 	int j = i, fin = 0;
-    pile_t * pPile = initPile(n);
+    pile_t * pPile = initPile(n+1); /* la taille influence sur la permitivité de truc_iter, ici i=O est permis, mais pas i<0. Cas général : taille = n+k -> i=-k+1 permis */
     
-    while (!estVide(pPile) || !fin)				/* tant que la pile est pleine ou que ce n'est pas fini */
+    while (!estVide(pPile) || !fin)		/* tant que la pile est pleine ou que ce n'est pas fini */
     {
-		if (i<=n && j<=n)				/* on peut encore augmenter i et j */
+		if (i<=n && j<=n)		/* on peut encore augmenter i et j */
 		{
 			codeEmp = empile(pPile, j);		/* on empile les j */
-            if(!codeEmp)					/* si l'empilage ne s'est pas bien passé */
+            if(!codeEmp)				/* si l'empilage ne s'est pas bien passé */
             {
                 printf("erreur d'empilage \n");
                 fin = 1;
             }
 			echange(T,i,j);
-			i++;					/* on incrémente i */
-			j=i;					/* comme au début de chaque appel récursif, j doit prendre la valeur de i */
+			i++;		/* on incrémente i */
+			j=i;		/* comme au début de chaque appel récursif, j doit prendre la valeur de i */
 		}
 		else
 		{
-			if (i==n+1)				/* on affiche le tableau dans le cas où i > n*/
+			if (i==n+1)			/* on affiche le tableau dans le cas où i > n*/
 			{
 				afficherTab(T,n);
 			}
-			if (!estVide(pPile)) 			/* la pile est non vide, il reste des j à dépiler */
+			if (!estVide(pPile)) 	/* la pile est non vide, il reste des j à dépiler */
 			{
 				codeDep = depile(pPile, &j);
-                if(!codeDep)					/* si le dépilage ne s'est pas bien passé */
+                if(!codeDep)			/* si le dépilage ne s'est pas bien passé */
                 {
                     printf("erreur de depilage \n");
                     fin = 1;
                 }
-				i--;				/* on décrémente i pour l'échange */
+				i--;	/* on décrémente i pour l'échange */
 				echange(T,i,j);
 				j++;
 			}
 			else
 			{
-				fin = 1;			/* la pile est vide, on a fini */
+				fin = 1;		/* la pile est vide, on a fini */
 			}
 		}
 	}
